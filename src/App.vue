@@ -36,11 +36,11 @@
             <button
               class="merchandise__action"
               v-on:click="storeClick(item)"
-              v-bind:disabled="item.itemCost < cash ? true : false"
-              v-bind:class="item.itemCost < cash ? 'disabled' : 'not'"
+              v-bind:disabled="item.itemCost > cash ? true : false"
+              v-bind:class="item.itemCost <= cash ? 'not' : 'disabled'"
             >
               <p>{{ item.itemId + 1 }}. {{ item.itemName }}</p>
-              <p>${{ item.itemCost }}</p>
+              <p>${{ item.itemCost }} | {{ cash }}</p>
             </button>
           </li>
         </ul>
