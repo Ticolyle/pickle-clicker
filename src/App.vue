@@ -4,7 +4,7 @@
     <section class="infobox">
       <p class="market">Price: {{ marketPrice }}</p>
       <div class="stats">
-        <p>Cash: {{ cash }}</p>
+        <p>Cash: {{ cash | toCurrency }}</p>
         <p>Pickles: {{ pickles }} ({{ pps }} pps)</p>
         <p>Satisfaction: {{ satisfaction }}</p>
       </div>
@@ -81,7 +81,7 @@ export default {
     pickles: function() {
       // Calc pps?
       // eslint-disable-next-line
-      console.log(this.pickles);
+      // console.log(this.pickles);
     }
   },
   methods: {
@@ -98,8 +98,7 @@ export default {
       this.picklesTick = 0;
     },
     pickleClick: function() {
-      console.log('pick');
-      this.picklesSec++;
+      this.picklesTick++;
       this.pickles++;
     },
     sellClick: function() {
